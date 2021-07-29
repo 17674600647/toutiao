@@ -1,7 +1,8 @@
 package com.heima.utils.threadlocal;
 
 
-import com.heima.model.media.pojos.WmUser;
+
+import com.heima.model.wemedia.pojos.WmUser;
 
 public class WmThreadLocalUtils {
 

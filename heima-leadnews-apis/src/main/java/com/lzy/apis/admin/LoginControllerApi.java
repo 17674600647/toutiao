@@ -1,7 +1,7 @@
 package com.lzy.apis.admin;
 
 import com.heima.model.admin.dtos.AdUserDto;
-import com.heima.model.admin.pojos.AdUser;
+
 import com.heima.model.common.dtos.ResponseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

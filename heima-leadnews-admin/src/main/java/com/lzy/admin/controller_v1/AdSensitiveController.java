@@ -29,7 +29,7 @@ public class AdSensitiveController implements AdSensitiveControllerApi {
 
     @PostMapping("/save")
     @Override
-    public ResponseResult save(AdSensitive adSensitive) {
+    public ResponseResult save(@RequestBody AdSensitive adSensitive) {
 
 
         return adSensitiveService.insert(adSensitive);
@@ -37,14 +37,14 @@ public class AdSensitiveController implements AdSensitiveControllerApi {
 
     @PostMapping("/update")
     @Override
-    public ResponseResult update(AdSensitive adSensitive) {
+    public ResponseResult update(@RequestBody AdSensitive adSensitive) {
 
         return adSensitiveService.update(adSensitive);
     }
 
     @DeleteMapping("/del/{id}")
     @Override
-    public ResponseResult delete(Integer id) {
+    public ResponseResult delete(@RequestBody Integer id) {
         return adSensitiveService.delete(id);
     }
 }

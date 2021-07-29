@@ -11,6 +11,5 @@ import com.heima.model.common.dtos.ResponseResult;
  * @ Description：用户类
  */
 public interface UserLogInService extends IService<AdUser> {
-    public ResponseResult login(AdUserDto dto)
-            ;
+    public ResponseResult login(AdUserDto dto);
 }

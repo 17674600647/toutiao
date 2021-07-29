@@ -33,6 +33,7 @@ public class UserLogInServiceImpl extends ServiceImpl<AdUserMapper, AdUser> impl
     public ResponseResult login(AdUserDto dto) {
         //1.参数校验
         if (StringUtils.isEmpty(dto.getName()) || StringUtils.isEmpty(dto.getPassword())) {
+            System.out.println(dto);
             return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_REQUIRE, "用户名或密码不能为空");
         }
         Wrapper wrapper = new QueryWrapper<AdUser>();

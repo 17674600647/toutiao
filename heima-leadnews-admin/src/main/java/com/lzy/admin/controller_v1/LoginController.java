@@ -7,6 +7,7 @@ import com.lzy.admin.service.UserLogInService;
 import com.lzy.apis.admin.LoginControllerApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,7 +27,7 @@ public class LoginController implements LoginControllerApi {
 
     @PostMapping("/in")
     @Override
-    public ResponseResult login(AdUserDto dto) {
+    public ResponseResult login(@RequestBody  AdUserDto dto) {
         return userLogInService.login(dto);
     }
 }

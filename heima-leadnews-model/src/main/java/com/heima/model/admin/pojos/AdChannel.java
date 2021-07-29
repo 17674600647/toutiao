@@ -58,4 +58,5 @@ public class AdChannel implements Serializable {
     @TableField("created_time")
     private Date createdTime;
 
+
 }
