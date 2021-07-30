@@ -18,6 +18,8 @@
         <module>heima-leadnews-user</module>
         <module>heima-leadnews-wemedia</module>
         <module>heima-leadnews-article</module>
+        <module>heima-leadnews-seata</module>
+        <module>heima-leadnews-wemedia-gateway</module>
     </modules>
 
     <!-- 继承Spring boot工程 -->

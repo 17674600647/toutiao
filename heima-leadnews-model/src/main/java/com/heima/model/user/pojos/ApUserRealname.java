@@ -78,7 +78,7 @@ public class ApUserRealname implements Serializable {
             9 审核通过
      */
     @TableField("status")
-    private Short status;
+    private Integer status;
 
     /**
      * 拒绝原因

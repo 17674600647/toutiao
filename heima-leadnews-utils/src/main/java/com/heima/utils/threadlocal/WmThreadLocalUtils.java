@@ -15,7 +15,6 @@ public class WmThreadLocalUtils {
     public static void setUser(WmUser user){
         userThreadLocal.set(user);
     }
-
     /**
      * 获取线程中的用户
      * @return

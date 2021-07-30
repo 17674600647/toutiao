@@ -18,8 +18,11 @@ import com.lzy.user.feign.WemediaFeign;
 import com.lzy.user.mapper.ApUserMapper;
 import com.lzy.user.mapper.ApUserRealnameMapper;
 import com.lzy.user.service.ApUserRealnameService;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.Date;
 
@@ -29,6 +32,7 @@ import java.util.Date;
  * @ Date       ：Created in 10:58 2021/7/29
  * @ Description：实现类
  */
+@Transactional
 @Service
 public class ApUserRealnameServiceImpl extends ServiceImpl<ApUserRealnameMapper, ApUserRealname> implements ApUserRealnameService {
     @Autowired
@@ -63,7 +67,8 @@ public class ApUserRealnameServiceImpl extends ServiceImpl<ApUserRealnameMapper,
     }
 
     @Override
-    public ResponseResult updateStatusById(AuthDto dto, Short status) {
+    @GlobalTransactional
+    public ResponseResult updateStatusById(AuthDto dto, Integer status) {
         //检查参数
         if (dto == null || dto.getId() == null) {
             return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
@@ -91,9 +96,7 @@ public class ApUserRealnameServiceImpl extends ServiceImpl<ApUserRealnameMapper,
                 return result;
             }
         }
-
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
-
     }
 
     /**
@@ -158,7 +161,7 @@ public class ApUserRealnameServiceImpl extends ServiceImpl<ApUserRealnameMapper,
      * @param status
      * @return
      */
-    private boolean checkStatus(Short status) {
+    private boolean checkStatus(Integer status) {
         if (status == null || (!status.equals(UserConstants.FAIL_AUTH) && !status.equals(UserConstants.PASS_AUTH))) {
             return true;
         }

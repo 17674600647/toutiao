@@ -25,5 +25,5 @@ public interface ApUserRealnameService extends IService<ApUserRealname> {
      * @param status
      * @return
      */
-    public ResponseResult updateStatusById(AuthDto dto,Short status);
+    public ResponseResult updateStatusById(AuthDto dto,Integer status);
 }

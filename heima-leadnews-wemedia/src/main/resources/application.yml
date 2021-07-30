@@ -7,6 +7,9 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.200.130:8848
+    alibaba:
+      seata:
+        tx-service-group: ${spring.application.name}_tx_group
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://47.103.216.189:3306/leadnews_wemedia?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
@@ -17,3 +20,5 @@ mybatis-plus:
   mapper-locations: classpath*:mapper/*.xml
   # 设置别名包扫描路径，通过该属性可以给包中的类注册别名
   type-aliases-package: com.heima.model.wemedia.pojos
+#图片访问ip
+fdfs.url: http://192.168.200.130/

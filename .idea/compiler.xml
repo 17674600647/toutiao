@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="heima-leadnews-apis" />
+        <module name="heima-leadnews-wemedia-gateway" />
         <module name="heima-leadnews-utils" />
         <module name="heima-leadnews-wemedia" />
         <module name="heima-leadnews-admin" />
@@ -16,6 +17,7 @@
         <module name="heima-leadnews-article" />
         <module name="heima-leadnews-common" />
         <module name="heima-leadnews-model" />
+        <module name="heima-leadnews-seata" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
