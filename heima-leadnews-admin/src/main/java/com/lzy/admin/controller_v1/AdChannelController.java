@@ -8,6 +8,8 @@ import com.lzy.apis.admin.AdChannelControllerApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * @author ：lzy
  * @ Date       ：Created in 10:34 2021/7/28
@@ -39,7 +41,19 @@ public class AdChannelController implements AdChannelControllerApi {
 
     @GetMapping("/del/{id}")
     @Override
-    public ResponseResult deleteById( @PathVariable Integer id) {
+    public ResponseResult deleteById(@PathVariable Integer id) {
         return channelService.deleteById(id);
+    }
+
+    /**
+     * 查询所有频道
+     *
+     * @return
+     */
+    @GetMapping("/channels")
+    @Override
+    public ResponseResult findAll() {
+        List<AdChannel> list = channelService.list();
+        return ResponseResult.okResult(list);
     }
 }

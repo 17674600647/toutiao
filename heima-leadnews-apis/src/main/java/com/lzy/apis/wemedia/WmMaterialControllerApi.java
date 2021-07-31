@@ -2,6 +2,7 @@ package com.lzy.apis.wemedia;
 
 import com.heima.model.common.dtos.ResponseResult;
 import com.heima.model.wemedia.dtos.WmMaterialDto;
+import com.heima.model.wemedia.dtos.WmNewsDto;
 import com.heima.model.wemedia.pojos.WmMaterial;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -51,4 +52,6 @@ public interface WmMaterialControllerApi {
      */
     @ApiOperation("收藏图片")
     ResponseResult collectionMaterial(Integer id);
+
+
 }

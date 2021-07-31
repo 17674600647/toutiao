@@ -6,8 +6,8 @@ import com.baomidou.mybatisplus.core.MybatisConfiguration;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import io.seata.rm.datasource.DataSourceProxy;
+import org.apache.ibatis.plugin.Interceptor;
 import org.mybatis.spring.transaction.SpringManagedTransactionFactory;
-import org.omg.PortableInterceptor.Interceptor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -42,7 +42,7 @@ public class DataSourcesProxyConfig {
 
     //替换SqlSessionFactory的DataSource
     @Bean
-    public MybatisSqlSessionFactoryBean sqlSessionFactory(DataSourceProxy dataSourceProxy) throws Exception {
+    public MybatisSqlSessionFactoryBean sqlSessionFactory(DataSourceProxy dataSourceProxy, PaginationInterceptor paginationInterceptor) throws Exception {
 
         // 这里必须用 MybatisSqlSessionFactoryBean 代替了 SqlSessionFactoryBean，否则 MyBatisPlus 不会生效
         MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean = new MybatisSqlSessionFactoryBean();
@@ -53,12 +53,13 @@ public class DataSourcesProxyConfig {
                 .getResources("classpath*:/mapper/*.xml"));
 
         MybatisConfiguration configuration = this.properties.getConfiguration();
-        if(configuration == null){
+        if (configuration == null) {
             configuration = new MybatisConfiguration();
         }
         mybatisSqlSessionFactoryBean.setConfiguration(configuration);
-
-
+        Interceptor[] plugins = { paginationInterceptor};
+        mybatisSqlSessionFactoryBean.setPlugins(plugins);
         return mybatisSqlSessionFactoryBean;
     }
+
 }

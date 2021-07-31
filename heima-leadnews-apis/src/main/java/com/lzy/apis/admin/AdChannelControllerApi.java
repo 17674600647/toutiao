@@ -50,4 +50,10 @@ public interface AdChannelControllerApi {
      */
     @ApiOperation("根据ID删除")
     public ResponseResult deleteById(Integer integer);
+
+    /**
+     * 查询所有频道
+     * @return
+     */
+    public ResponseResult findAll();
 }
